@@ -23,15 +23,15 @@ if (distance_to_point(player_x, player_y) <= distanceToFollow) {
 if (distance_to_player <= 30) {
     sprite_index = hit_enemy;
     image_speed = 0.5;
+    move_spd = 0; 
 } else {
     if (place_meeting(x, y, main_2)) {
         if (health > 0) {
-            health -= 1;
+            health -= 0.001;
             sprite_index = hit_enemy;
             image_speed = 0.5;
-			move_spd = 0;
-            alarm[0] = 30;
-             
+            move_spd = 0;
+            alarm[0] = 10;
         }
     }
 
@@ -40,5 +40,6 @@ if (distance_to_player <= 30) {
     } else {
         sprite_index = enemy;
         image_speed = 1;
+        move_spd = .8; 
     }
 }
