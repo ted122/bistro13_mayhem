@@ -27,7 +27,6 @@ if (distance_to_player <= 30) {
 } else {
     if (place_meeting(x, y, main_2)) {
         if (health > 0) {
-            health -= 0.001;
             sprite_index = hit_enemy;
             image_speed = 0.5;
             move_spd = 0;
