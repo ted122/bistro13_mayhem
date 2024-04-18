@@ -34,6 +34,16 @@ if place_meeting(x + xspd, y + yspd, obj_enemy) {
     }
 }
 
+if (right_key && !left_key && !up_key && !down_key) {
+    sprite_index = spr_main_right;
+} else if (left_key && !right_key && !up_key && !down_key) {
+    sprite_index = spr_main_left;
+} else if (!down_key && up_key && !left_key && !right_key) {
+    sprite_index = spr_main_back;
+} else {
+    sprite_index = main;
+}
+
 if keyboard_check_pressed(vk_space) {
     sprite_index = main_glitch;
     var dash_speed = move_spd * 40;
