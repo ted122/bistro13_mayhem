@@ -33,7 +33,7 @@ if place_meeting(x + xspd, y + yspd, obj_enemy) {
         yspd = 0;
     }
 }
-
+/*
 if (right_key && !left_key && !up_key && !down_key) {
     sprite_index = spr_main_right;
 } else if (left_key && !right_key && !up_key && !down_key) {
@@ -43,7 +43,7 @@ if (right_key && !left_key && !up_key && !down_key) {
 } else {
     sprite_index = main;
 }
-
+*/
 if keyboard_check_pressed(vk_space) {
 	
     sprite_index = main_glitch;
