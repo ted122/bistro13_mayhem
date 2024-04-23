@@ -1,16 +1,16 @@
 {
   "$GMSound":"",
-  "%Name":"Sound1",
+  "%Name":"room2_music",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
-  "bitDepth":0,
-  "bitRate":16,
+  "bitDepth":1,
+  "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":6.615669,
-  "name":"Sound1",
+  "duration":117.44653,
+  "name":"room2_music",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Sound1.wav",
+  "soundFile":"room2_music.mp3",
   "type":0,
   "volume":1.0,
 }

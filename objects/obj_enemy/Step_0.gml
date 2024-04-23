@@ -10,9 +10,7 @@ if (alarm[1] <= 0) {
     player_x = main_2.x;
     player_y = main_2.y;
 
-
     distance_to_player = point_distance(x, y, player_x, player_y);
-
 
     if (distance_to_player <= distanceToFollow) {
         // Move towards main_2
@@ -30,23 +28,23 @@ if (alarm[1] <= 0) {
     }
 }
 
-
+// Check collision with player
 if (distance_to_player <= 30) {
-
+	audio_play_sound(sound_taser, 0, false);
     sprite_index = hit_enemy;
     image_speed = 0.5;
 } else {
-  
     if (place_meeting(x, y, main_2)) {
-       
         if (health > 0) {
-          
+            // Play sound and set alarm
+            
             sprite_index = hit_enemy;
             image_speed = 0.5;
-            alarm[1] = room_speed * 40; 
+            alarm[1] = room_speed * 40; // Set alarm for 40 seconds
         }
     }
 
+    // Decrease alarm countdown
     if (alarm[1] > 0) {
         alarm[1] -= 1;
     } else {

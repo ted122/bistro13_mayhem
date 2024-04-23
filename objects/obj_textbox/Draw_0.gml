@@ -37,7 +37,7 @@ if setup == false
 	
 if accept_key
 	{
-			
+			audio_play_sound(sound_next, 0, false)
 			if draw_char == text_length[page]
 			{
 			if page < page_number -1 

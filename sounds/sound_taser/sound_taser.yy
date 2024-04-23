@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sound_taser",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "bitRate":16,
+  "compression":0,
+  "conversionMode":0,
+  "duration":6.615669,
+  "name":"sound_taser",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sound_taser.wav",
+  "type":0,
+  "volume":1.0,
+}

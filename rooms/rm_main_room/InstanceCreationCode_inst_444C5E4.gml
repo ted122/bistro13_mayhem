@@ -1,0 +1,1 @@
+audio_play_sound(room2_music, 0, true)

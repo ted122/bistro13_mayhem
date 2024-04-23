@@ -42,13 +42,13 @@ if (global.k_pressed) {
 }
 
 // Change the sprites if 'V' key has been pressed
-if (global.v_pressed) {
+else if (global.v_pressed) {
     default_ability_sprite = kitchen_camouflage; 
     default_passive_sprite = chefs_reserve;
 }
 
 // Change the sprites if 'B' key has been pressed
-if (global.b_pressed) {
+else if (global.b_pressed) {
     default_ability_sprite = rescue_resilience; 
     default_passive_sprite = ember_endurance;
 }
