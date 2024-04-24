@@ -51,6 +51,25 @@ if (place_meeting(x + xspd, y + yspd, obj_enemy)) {
     }
 }
 
+if (place_meeting(x + xspd, y + yspd, obj_inside)) {
+    if (health > 0) {
+        health -= 1;
+        show_debug_message("Health: " + string(health)); 
+        move_spd = 0;
+        alarm[0] = 30;
+    }
+    if (health <= 0) {
+        with (obj_inside) {
+            instance_destroy(); 
+        }
+        instance_destroy(); 
+    }
+    else {
+        xspd = 0;
+        yspd = 0;
+    }
+}
+
 if (keyboard_check_pressed(vk_space)) {
     if (transformed) {
         // Action when K is pressed and Space is pressed (healing)
@@ -75,6 +94,10 @@ if (keyboard_check_pressed(vk_space)) {
         }
     }
 }
+
+
+
+
 
 x += xspd;
 y += yspd;

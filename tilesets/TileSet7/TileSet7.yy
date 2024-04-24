@@ -1,13 +1,13 @@
 {
   "$GMTileSet":"",
-  "%Name":"street",
+  "%Name":"TileSet7",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":0,
     "SerialiseWidth":0,
     "TileSerialiseData":[],
   },
-  "name":"street",
+  "name":"TileSet7",
   "out_columns":4,
   "out_tilehborder":2,
   "out_tilevborder":2,
@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"main_building",
-    "path":"sprites/main_building/main_building.yy",
+    "name":"Sprite50",
+    "path":"sprites/Sprite50/Sprite50.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{

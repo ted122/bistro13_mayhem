@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"Sprite3",
-    "path":"sprites/Sprite3/Sprite3.yy",
+    "name":"main_building",
+    "path":"sprites/main_building/main_building.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{

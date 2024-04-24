@@ -1,10 +1,8 @@
-// Step Event
 
-// Check if the alarm is not active
 if (alarm[1] <= 0) {
     // Set movement speed and distance to follow
-    move_spd = .8;
-    distanceToFollow = 100;
+    move_spd = .4;
+    distanceToFollow = 900;
     
     // Get main_2 position
     player_x = main_2.x;
@@ -31,17 +29,16 @@ if (alarm[1] <= 0) {
 // Check collision with player
 if (distance_to_player <= 30) {
 	audio_play_sound(sound_taser, 0, false);
-    sprite_index = hit_enemy;
+    sprite_index = spr_inside_hit;
     image_speed = 0.5;
 } else {
     if (place_meeting(x, y, main_2)) {
         if (health > 0) {
             // Play sound and set alarm
             
-            sprite_index = hit_enemy;
+            sprite_index = spr_inside_hit;
             image_speed = 0.5;
-			move_spd = 0;
-            alarm[1] = room_speed * 40;
+            alarm[1] = room_speed * 40; // Set alarm for 40 seconds
         }
     }
 
@@ -49,7 +46,7 @@ if (distance_to_player <= 30) {
     if (alarm[1] > 0) {
         alarm[1] -= 1;
     } else {
-        sprite_index = enemy;
+        sprite_index = spr_inside_guard;
         image_speed = 1;
     }
 }
