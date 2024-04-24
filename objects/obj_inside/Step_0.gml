@@ -37,7 +37,8 @@ if (distance_to_player <= 30) {
             // Play sound and set alarm
             
             sprite_index = spr_inside_hit;
-            image_speed = 0.5;
+            move_spd = 0;
+			
             alarm[1] = room_speed * 40; // Set alarm for 40 seconds
         }
     }
