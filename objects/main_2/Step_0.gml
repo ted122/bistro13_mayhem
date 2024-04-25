@@ -1,8 +1,7 @@
-
 var transformed = false;
 
-
 var move_spd = 2;
+var max_health = 100;
 var right_key = keyboard_check(ord("D"));
 var left_key = keyboard_check(ord("A"));
 var up_key = keyboard_check(ord("W"));
@@ -46,8 +45,8 @@ if (place_meeting(x + xspd, y + yspd, obj_enemy)) {
         instance_destroy(); 
     }
     else {
-        xspd = 0;
-        yspd = 0;
+        xspd = 1;
+        yspd = 1;
     }
 }
 
@@ -94,10 +93,6 @@ if (keyboard_check_pressed(vk_space)) {
         }
     }
 }
-
-
-
-
 
 x += xspd;
 y += yspd;
