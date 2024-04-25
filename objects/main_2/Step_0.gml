@@ -1,7 +1,7 @@
-// Define transformed variable and initialize it
+
 var transformed = false;
 
-// Other variable declarations
+
 var move_spd = 2;
 var right_key = keyboard_check(ord("D"));
 var left_key = keyboard_check(ord("A"));
@@ -80,7 +80,7 @@ if (keyboard_check_pressed(vk_space)) {
         }
         show_debug_message("Health: " + string(health));
     } else {
-        // Default action when Space is pressed (dash)
+
         sprite_index = main_glitch;
         var dash_speed = move_spd * 40;
         var dash_xspd = (right_key - left_key) * dash_speed;

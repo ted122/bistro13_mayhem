@@ -37,7 +37,7 @@
     {"name":"rm_evit29","order":8,"path":"rooms/rm_evit29/rm_evit29.yy",},
     {"name":"rm_round","order":7,"path":"rooms/rm_round/rm_round.yy",},
     {"name":"rm_street","order":1,"path":"rooms/rm_street/rm_street.yy",},
-    {"name":"Room7","order":6,"path":"rooms/Room7/Room7.yy",},
+    {"name":"evit_","order":6,"path":"rooms/evit_/evit_.yy",},
     {"name":"bistro_song","order":1,"path":"sounds/bistro_song/bistro_song.yy",},
     {"name":"room2_music","order":4,"path":"sounds/room2_music/room2_music.yy",},
     {"name":"sound_exit","order":3,"path":"sounds/sound_exit/sound_exit.yy",},
