@@ -1,7 +1,11 @@
+// Initialize variables
 var transformed = false;
-
 var move_spd = 2;
 var max_health = 100;
+global.meals = 15;
+var playerScore = 100; // Initialize player score
+
+// Input handling
 var right_key = keyboard_check(ord("D"));
 var left_key = keyboard_check(ord("A"));
 var up_key = keyboard_check(ord("W"));
@@ -12,11 +16,9 @@ if (keyboard_check_pressed(ord("K"))) {
     if (sprite_index != spr_nurse) {
         sprite_index = spr_nurse;
     }
-} 
-else if (keyboard_check_pressed(ord("V")) && sprite_index != spr_culinary) {
+} else if (keyboard_check_pressed(ord("V")) && sprite_index != spr_culinary) {
     sprite_index = spr_culinary;
-} 
-else if (keyboard_check_pressed(ord("B")) && sprite_index != spr_fire) {
+} else if (keyboard_check_pressed(ord("B")) && sprite_index != spr_fire) {
     sprite_index = spr_fire;
 }
 
@@ -31,47 +33,27 @@ if (place_meeting(x, y + yspd, obj_wall)) {
     yspd = 0;
 }
 
-if (place_meeting(x + xspd, y + yspd, obj_enemy)) {
+if (place_meeting(x + xspd, y + yspd, obj_enemy) || place_meeting(x + xspd, y + yspd, obj_inside)) {
     if (health > 0) {
         health -= 1;
         show_debug_message("Health: " + string(health)); 
         move_spd = 0;
         alarm[0] = 30;
-    }
-    if (health <= 0) {
-        with (obj_enemy) {
-            instance_destroy(); 
-        }
-        instance_destroy(); 
-    }
-    else {
-        xspd = 1;
-        yspd = 1;
-    }
-}
 
-if (place_meeting(x + xspd, y + yspd, obj_inside)) {
-    if (health > 0) {
-        health -= 1;
-        show_debug_message("Health: " + string(health)); 
-        move_spd = 0;
-        alarm[0] = 30;
-    }
-    if (health <= 0) {
-        with (obj_inside) {
+        if (health <= 0) {
+            with (obj_enemy) {
+                instance_destroy(); 
+            }
             instance_destroy(); 
+        } else {
+            xspd = 1;
+            yspd = 1;
         }
-        instance_destroy(); 
-    }
-    else {
-        xspd = 0;
-        yspd = 0;
     }
 }
 
 if (keyboard_check_pressed(vk_space)) {
     if (transformed) {
-        // Action when K is pressed and Space is pressed (healing)
         if (health < 50) {
             health += 50;
         } else {
@@ -79,7 +61,6 @@ if (keyboard_check_pressed(vk_space)) {
         }
         show_debug_message("Health: " + string(health));
     } else {
-
         sprite_index = main_glitch;
         var dash_speed = move_spd * 40;
         var dash_xspd = (right_key - left_key) * dash_speed;
@@ -104,4 +85,8 @@ if (alarm[0] > 0) {
 
 if (alarm[1] > 0) {
     alarm[1] -= 1;
+}
+
+if (place_meeting(x, y, obj_warp)) {
+    show_debug_message("High Score: " + string(global.meals));
 }

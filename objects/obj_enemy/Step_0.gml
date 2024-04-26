@@ -28,13 +28,8 @@ if (alarm[1] <= 0) {
     }
 }
 
-if (place_meeting(x + xspd, y, obj_enemy)) {
-   move_spd = 0;
-}
 
-if (place_meeting(x, y + yspd, obj_enemy)) {
-   move_spd = 0;
-}
+
 
 
 
