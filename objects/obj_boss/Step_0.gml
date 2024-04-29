@@ -3,7 +3,7 @@
 // Check if the alarm is not active
 if (alarm[1] <= 0) {
     // Set movement speed and distance to follow
-    move_spd = .2;
+    move_spd = 1;
     distanceToFollow = 900;
     
     // Get main_2 position
