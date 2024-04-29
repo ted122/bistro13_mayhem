@@ -15,7 +15,7 @@ var meal = 15;
 
 
 page = 0
-text [0] = "great job ";
+text [0] = "GREAT JOB ";
 
 
 text_length[0] = string_length(text[0])
