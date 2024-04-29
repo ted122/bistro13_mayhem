@@ -3,7 +3,7 @@ var transformed = false;
 var move_spd = 2;
 var max_health = 100;
 global.meals = 15;
-var playerScore = 100; // Initialize player score
+var playerScore = 100; 
 
 // Input handling
 var right_key = keyboard_check(ord("D"));
@@ -52,6 +52,51 @@ if (place_meeting(x + xspd, y + yspd, obj_enemy) || place_meeting(x + xspd, y + 
     }
 }
 
+
+if (place_meeting(x + xspd, y + yspd, obj_boss)) {
+    if (health > 0) {
+        health -= 99;
+        show_debug_message("Health: " + string(health)); 
+        move_spd = 0;
+        alarm[0] = 30;
+
+        if (health <= 0) {
+            with (obj_boss) {
+                instance_destroy(); 
+            }
+            instance_destroy(); 
+        } else {
+            xspd = 1;
+            yspd = 1;
+        }
+    }
+}
+
+
+
+if (place_meeting(x + xspd, y + yspd, obj_light)) {
+    if (health > 0) {
+        health -= 1;
+        show_debug_message("Health: " + string(health)); 
+        move_spd = 0;
+        alarm[0] = 30;
+
+        if (health <= 0) {
+            with (obj_light) {
+                instance_destroy(); 
+            }
+            instance_destroy(); 
+        } else {
+            xspd = 1;
+            yspd = 1;
+        }
+    }
+}
+
+
+
+
+
 if (keyboard_check_pressed(vk_space)) {
     if (transformed) {
         if (health < 50) {
@@ -87,6 +132,16 @@ if (alarm[1] > 0) {
     alarm[1] -= 1;
 }
 
-if (place_meeting(x, y, obj_warp)) {
+if place_meeting(x, y, main_2) && place_meeting(x, y, obj_heal_wrp) && !instance_exists(obj_heal_wrp)
+{
+    global.meals -= 1;
+}
+
+if (place_meeting(x, y, obj_heal_wrp)) {
     show_debug_message("High Score: " + string(global.meals));
 }
+
+
+
+
+

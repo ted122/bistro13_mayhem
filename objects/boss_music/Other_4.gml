@@ -1,0 +1,1 @@
+audio_play_sound(boss_song,0,true);
