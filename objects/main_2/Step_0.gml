@@ -52,7 +52,7 @@ if (place_meeting(x + xspd, y + yspd, obj_enemy) || place_meeting(x + xspd, y + 
     }
 }
 
-// Add this condition to prevent movement if obj_textbox exists
+
 if (!instance_exists(obj_textbox)) {
     if (place_meeting(x + xspd, y + yspd, obj_boss)) {
         if (health > 0) {
@@ -60,6 +60,7 @@ if (!instance_exists(obj_textbox)) {
             show_debug_message("Health: " + string(health)); 
             move_spd = 0;
             alarm[0] = 30;
+		
 			
 
             if (health <= 0) {

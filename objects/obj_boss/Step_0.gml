@@ -7,7 +7,7 @@ if (alarm[1] <= 0) {
     move_spd = 0.6;
     distanceToFollow = 900;
 
-    // Check if main_2 exists before accessing its properties
+
     if(instance_exists(main_2)) {
         var player_x = main_2.x;
         var player_y = main_2.y;
