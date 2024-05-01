@@ -3,7 +3,10 @@ var transformed = false;
 var move_spd = 2;
 var max_health = 100;
 global.meals = 15;
-var playerScore = 100; 
+var playerScore = 100;
+
+// Cooldown variables
+var spaceCooldown = 0; // Timer for space bar cooldown
 
 // Input handling
 var right_key = keyboard_check(ord("D"));
@@ -41,20 +44,18 @@ if (place_meeting(x, y + yspd, wall_time)) {
     yspd = 0;
 }
 
-
-
 if (place_meeting(x + xspd, y + yspd, obj_enemy) || place_meeting(x + xspd, y + yspd, obj_inside)) {
     if (health > 0) {
         health -= 1;
-        show_debug_message("Health: " + string(health)); 
+        show_debug_message("Health: " + string(health));
         move_spd = 0;
         alarm[0] = 30;
 
         if (health <= 0) {
             with (obj_enemy) {
-                instance_destroy(); 
+                instance_destroy();
             }
-            instance_destroy(); 
+            instance_destroy();
         } else {
             xspd = 1;
             yspd = 1;
@@ -62,22 +63,19 @@ if (place_meeting(x + xspd, y + yspd, obj_enemy) || place_meeting(x + xspd, y + 
     }
 }
 
-
 if (!instance_exists(obj_textbox)) {
     if (place_meeting(x + xspd, y + yspd, obj_boss)) {
         if (health > 0) {
             health -= 99;
-            show_debug_message("Health: " + string(health)); 
+            show_debug_message("Health: " + string(health));
             move_spd = 0;
             alarm[0] = 30;
-		
-			
 
             if (health <= 0) {
                 with (obj_boss) {
-                    instance_destroy(); 
+                    instance_destroy();
                 }
-                instance_destroy(); 
+                instance_destroy();
             } else {
                 xspd = 1;
                 yspd = 1;
@@ -88,15 +86,15 @@ if (!instance_exists(obj_textbox)) {
     if (place_meeting(x + xspd, y + yspd, obj_light)) {
         if (health > 0) {
             health -= 5;
-            show_debug_message("Health: " + string(health)); 
+            show_debug_message("Health: " + string(health));
             move_spd = 0;
             alarm[0] = 30;
 
             if (health <= 0) {
                 with (obj_light) {
-                    instance_destroy(); 
+                    instance_destroy();
                 }
-                instance_destroy(); 
+                instance_destroy();
             } else {
                 xspd = 1;
                 yspd = 1;
@@ -104,7 +102,8 @@ if (!instance_exists(obj_textbox)) {
         }
     }
 
-    if (keyboard_check_pressed(vk_space)) {
+    // Check if space bar is pressed and cooldown is over
+    if (keyboard_check_pressed(vk_space) && spaceCooldown <= 0) { 
         if (transformed) {
             if (health < 50) {
                 health += 50;
@@ -113,18 +112,26 @@ if (!instance_exists(obj_textbox)) {
             }
             show_debug_message("Health: " + string(health));
         } else {
+            // Teleportation logic
             sprite_index = main_glitch;
             var dash_speed = move_spd * 40;
             var dash_xspd = (right_key - left_key) * dash_speed;
             var dash_yspd = (down_key - up_key) * dash_speed;
-            alarm[1] = room_speed * 2; 
+            alarm[1] = room_speed * 2;
             if (!place_meeting(x + dash_xspd, y, obj_wall)) {
                 xspd += dash_xspd;
             }
             if (!place_meeting(x, y + dash_yspd, obj_wall)) {
                 yspd += dash_yspd;
             }
+            // Set cooldown timer
+            spaceCooldown = 10 * room_speed; // 10 seconds cooldown (converted to steps)
         }
+    }
+
+    // Decrease cooldown timer if it's active
+    if (spaceCooldown > 0) {
+        spaceCooldown--;
     }
 
     x += xspd;

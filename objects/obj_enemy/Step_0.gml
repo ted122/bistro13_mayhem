@@ -1,12 +1,17 @@
+// Create Event
+initialized = false;
+
 // Step Event
 
-// Check if the alarm is not active
+if (!initialized) {
+    initialized = true;
+    direction = 0; // Initial direction, assuming right
+}
+
 if (alarm[1] <= 0) {
-    // Set movement speed and distance to follow
     move_spd = .8;
     distanceToFollow = 500;
     
-    // Get main_2 position
     player_x = main_2.x;
     player_y = main_2.y;
 
@@ -16,8 +21,10 @@ if (alarm[1] <= 0) {
         // Move towards main_2
         if (player_x > x && !place_meeting(x + move_spd, y, obj_wall)) {
             x += move_spd;
+            direction = 0; // Set direction to right
         } else if (player_x < x && !place_meeting(x - move_spd, y, obj_wall)) {
             x -= move_spd;
+            direction = 180; // Set direction to left
         }
         
         if (player_y > y && !place_meeting(x, y + move_spd, obj_wall)) {
@@ -28,24 +35,20 @@ if (alarm[1] <= 0) {
     }
 }
 
-
-
-
-
-
-
+// Check if the player is in attack range
 if (distance_to_player <= 30) {
-	audio_play_sound(sound_taser, 0, false);
+    audio_play_sound(sound_taser, 0, false);
     sprite_index = hit_enemy;
     image_speed = 0.5;
 } else {
+    // Check if the player is touched
     if (place_meeting(x, y, main_2)) {
         if (health > 0) {
             // Play sound and set alarm
             audio_play_sound(sound_taser, 0, false);
             sprite_index = hit_enemy;
             image_speed = 0.5;
-			move_spd = 0;
+            move_spd = 0;
             alarm[1] = room_speed * 3;
         }
     }
@@ -57,4 +60,11 @@ if (distance_to_player <= 30) {
         sprite_index = enemy;
         image_speed = 1;
     }
+}
+
+// Additional code to turn around when encountering obstacles
+if (place_meeting(x + move_spd, y, obj_wall) || place_meeting(x - move_spd, y, obj_wall)) {
+    // If hitting a wall, reverse direction
+    direction += 180; // Reverse direction
+    move_spd = -move_spd; // Reverse speed
 }
