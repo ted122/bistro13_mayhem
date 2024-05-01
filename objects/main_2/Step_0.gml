@@ -33,6 +33,16 @@ if (place_meeting(x, y + yspd, obj_wall)) {
     yspd = 0;
 }
 
+if (place_meeting(x + xspd, y, wall_time)) {
+    xspd = 0;
+}
+
+if (place_meeting(x, y + yspd, wall_time)) {
+    yspd = 0;
+}
+
+
+
 if (place_meeting(x + xspd, y + yspd, obj_enemy) || place_meeting(x + xspd, y + yspd, obj_inside)) {
     if (health > 0) {
         health -= 1;
@@ -77,7 +87,7 @@ if (!instance_exists(obj_textbox)) {
 
     if (place_meeting(x + xspd, y + yspd, obj_light)) {
         if (health > 0) {
-            health -= 1;
+            health -= 5;
             show_debug_message("Health: " + string(health)); 
             move_spd = 0;
             alarm[0] = 30;

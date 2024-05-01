@@ -5,5 +5,7 @@ if place_meeting(x, y, main_2) && !instance_exists(obj_transition)
 	inst.target_x = target_x;
 	inst.target_y = target_y;
 	inst.target_rm = target_rm;
+	global.meals -= 11;
 	health += 50;
+	
 }
