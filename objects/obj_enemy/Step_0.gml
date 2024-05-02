@@ -61,23 +61,23 @@ if (distance_to_player <= 30) {
     }
 }
 
-// Additional code to turn around when encountering obstacles
+
 if (place_meeting(x + move_spd, y, obj_wall) || place_meeting(x - move_spd, y, obj_wall)) {
     show_debug_message("Hitting wall");
-    direction += 180; // Reverse direction
+    direction += 180; 
 
-    // Adjust direction to either 0 or 180 degrees for horizontal movement
+ 
     if (direction > 180) {
         direction -= 360;
     } else if (direction < -180) {
         direction += 360;
     }
 
-    // Keep speed constant but adjust direction
+
     if (direction == 0 || direction == 180) {
-        move_spd = abs(move_spd); // Ensure positive speed for right direction
+        move_spd = abs(move_spd); 
     } else {
-        move_spd = -abs(move_spd); // Ensure negative speed for left direction
+        move_spd = -abs(move_spd);
     }
 
     show_debug_message("Direction after hitting wall: " + string(direction));

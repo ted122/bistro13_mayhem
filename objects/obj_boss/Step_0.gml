@@ -43,7 +43,7 @@ if (instance_exists(main_2)) {
             }
         }
 
-        // Reduce the alarm timer
+ 
         if (alarm[1] > 0) {
             alarm[1] -= 1;
         } else {
@@ -52,6 +52,8 @@ if (instance_exists(main_2)) {
             instance_create_layer(x, y, layer, obj_light);
             instance_create_layer(x, y, layer, obj_light); 
             instance_create_layer(x, y, layer, obj_light); 
+			
+			instance_create_layer(x, y, layer, obj_light); 
 
             image_speed = 1; 
         }
