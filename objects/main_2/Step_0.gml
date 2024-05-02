@@ -63,7 +63,8 @@ if (place_meeting(x + xspd, y + yspd, obj_enemy) || place_meeting(x + xspd, y + 
     }
 }
 
-if (!instance_exists(obj_textbox)) {
+// Check if neither textbox nor boss talk instance exists
+if (!instance_exists(obj_textbox) && !instance_exists(obj_boss_talk)) {
     if (place_meeting(x + xspd, y + yspd, obj_boss)) {
         if (health > 0) {
             health -= 99;
@@ -125,11 +126,11 @@ if (!instance_exists(obj_textbox)) {
                 yspd += dash_yspd;
             }
             // Set cooldown timer
-            spaceCooldown = 10 * room_speed; // 10 seconds cooldown (converted to steps)
+            spaceCooldown = 10 * room_speed; 
         }
     }
 
-    // Decrease cooldown timer if it's active
+
     if (spaceCooldown > 0) {
         spaceCooldown--;
     }
@@ -152,5 +153,13 @@ if (!instance_exists(obj_textbox)) {
 
     if (place_meeting(x, y, obj_heal_wrp)) {
         show_debug_message("High Score: " + string(global.meals));
+    }
+}
+
+
+if (instance_exists(obj_boss_talk)) {
+
+    if (place_meeting(x, y, obj_boss_talk)) {
+   
     }
 }

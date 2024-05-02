@@ -12,7 +12,7 @@ txtb_img_spd = 6/60;
 
 page = 0
 text [0] = " BE CAREFUL ";
-text [1] = "  THERE IS A BOSS AHEAD ";
+text [1] = "  THERE IS A BOSS AHEAD ITS MR SAAR AND IS DING MACHINE ";
 text [2] = "LET ME HEAL YOU";
 
 

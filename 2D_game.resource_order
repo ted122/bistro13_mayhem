@@ -18,6 +18,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"boss_music","order":18,"path":"objects/boss_music/boss_music.yy",},
+    {"name":"boss_warning","order":22,"path":"objects/boss_warning/boss_warning.yy",},
     {"name":"game_music","order":11,"path":"objects/game_music/game_music.yy",},
     {"name":"high_score","order":14,"path":"objects/high_score/high_score.yy",},
     {"name":"obj_boss_talk","order":17,"path":"objects/obj_boss_talk/obj_boss_talk.yy",},
@@ -31,7 +32,6 @@
     {"name":"obj_parent_button","order":21,"path":"objects/obj_parent_button/obj_parent_button.yy",},
     {"name":"obj_settings","order":6,"path":"objects/obj_settings/obj_settings.yy",},
     {"name":"obj_textbox","order":7,"path":"objects/obj_textbox/obj_textbox.yy",},
-    {"name":"boss_warning","order":22,"path":"objects/boss_warning/boss_warning.yy",},
     {"name":"obj_transition","order":3,"path":"objects/obj_transition/obj_transition.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
     {"name":"obj_warp","order":2,"path":"objects/obj_warp/obj_warp.yy",},
@@ -106,6 +106,7 @@
     {"name":"Sprite52","order":54,"path":"sprites/Sprite52/Sprite52.yy",},
     {"name":"Sprite54","order":55,"path":"sprites/Sprite54/Sprite54.yy",},
     {"name":"Sprite57","order":59,"path":"sprites/Sprite57/Sprite57.yy",},
+    {"name":"spr_health","order":61,"path":"sprites/spr_health/spr_health.yy",},
     {"name":"Sprite6","order":5,"path":"sprites/Sprite6/Sprite6.yy",},
     {"name":"spritebuilding","order":46,"path":"sprites/spritebuilding/spritebuilding.yy",},
     {"name":"text_box","order":19,"path":"sprites/text_box/text_box.yy",},

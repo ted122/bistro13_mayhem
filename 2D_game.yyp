@@ -38,6 +38,7 @@
   "resources":[
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
     {"id":{"name":"boss_music","path":"objects/boss_music/boss_music.yy",},},
+    {"id":{"name":"boss_warning","path":"objects/boss_warning/boss_warning.yy",},},
     {"id":{"name":"game_music","path":"objects/game_music/game_music.yy",},},
     {"id":{"name":"high_score","path":"objects/high_score/high_score.yy",},},
     {"id":{"name":"main_2","path":"objects/main_2/main_2.yy",},},
@@ -52,7 +53,6 @@
     {"id":{"name":"obj_parent_button","path":"objects/obj_parent_button/obj_parent_button.yy",},},
     {"id":{"name":"obj_settings","path":"objects/obj_settings/obj_settings.yy",},},
     {"id":{"name":"obj_textbox","path":"objects/obj_textbox/obj_textbox.yy",},},
-    {"id":{"name":"boss_warning","path":"objects/boss_warning/boss_warning.yy",},},
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"obj_warp","path":"objects/obj_warp/obj_warp.yy",},},
@@ -130,6 +130,7 @@
     {"id":{"name":"Sprite52","path":"sprites/Sprite52/Sprite52.yy",},},
     {"id":{"name":"Sprite54","path":"sprites/Sprite54/Sprite54.yy",},},
     {"id":{"name":"Sprite57","path":"sprites/Sprite57/Sprite57.yy",},},
+    {"id":{"name":"spr_health","path":"sprites/spr_health/spr_health.yy",},},
     {"id":{"name":"Sprite6","path":"sprites/Sprite6/Sprite6.yy",},},
     {"id":{"name":"spritebuilding","path":"sprites/spritebuilding/spritebuilding.yy",},},
     {"id":{"name":"text_box","path":"sprites/text_box/text_box.yy",},},
