@@ -2,7 +2,6 @@
 initialized = false;
 
 // Step Event
-
 if (!initialized) {
     initialized = true;
     direction = 0; // Initial direction, assuming right
@@ -64,7 +63,22 @@ if (distance_to_player <= 30) {
 
 // Additional code to turn around when encountering obstacles
 if (place_meeting(x + move_spd, y, obj_wall) || place_meeting(x - move_spd, y, obj_wall)) {
-    // If hitting a wall, reverse direction
+    show_debug_message("Hitting wall");
     direction += 180; // Reverse direction
-    move_spd = -move_spd; // Reverse speed
+
+    // Adjust direction to either 0 or 180 degrees for horizontal movement
+    if (direction > 180) {
+        direction -= 360;
+    } else if (direction < -180) {
+        direction += 360;
+    }
+
+    // Keep speed constant but adjust direction
+    if (direction == 0 || direction == 180) {
+        move_spd = abs(move_spd); // Ensure positive speed for right direction
+    } else {
+        move_spd = -abs(move_spd); // Ensure negative speed for left direction
+    }
+
+    show_debug_message("Direction after hitting wall: " + string(direction));
 }
