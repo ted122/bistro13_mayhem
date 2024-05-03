@@ -5,10 +5,10 @@ var max_health = 100;
 global.meals = 15;
 var playerScore = 100;
 
-// Cooldown variables
-var spaceCooldown = 0; // Timer for space bar cooldown
 
-// Input handling
+var spaceCooldown = 0; 
+
+
 var right_key = keyboard_check(ord("D"));
 var left_key = keyboard_check(ord("A"));
 var up_key = keyboard_check(ord("W"));
@@ -63,7 +63,7 @@ if (place_meeting(x + xspd, y + yspd, obj_enemy) || place_meeting(x + xspd, y + 
     }
 }
 
-// Check if neither textbox nor boss talk instance exists
+
 if (!instance_exists(obj_textbox) && !instance_exists(obj_boss_talk)) {
     if (place_meeting(x + xspd, y + yspd, obj_boss)) {
         if (health > 0) {

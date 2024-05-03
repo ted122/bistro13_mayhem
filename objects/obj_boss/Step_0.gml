@@ -2,7 +2,7 @@
 
 var distance_to_player;
 
-// Check if the alarm has expired
+
 if (alarm[1] <= 0) {
     move_spd = 0.6;
     distanceToFollow = 900;
@@ -30,7 +30,7 @@ if (alarm[1] <= 0) {
     }
 }
 
-// Check if the player is too close
+
 if (instance_exists(main_2)) {
     if (distance_to_player <= 20) {
         image_speed = 0.5;

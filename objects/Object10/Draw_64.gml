@@ -53,6 +53,7 @@ else if (global.b_pressed) {
     default_passive_sprite = ember_endurance;
 }
 
+// Draw default ability sprite
 var player = instance_find(main_2, 0);
 var spr_ability = default_ability_sprite;
 
@@ -65,14 +66,10 @@ if (player != noone) {
 	
 	var scale_factor = 2.5;
 
-    
-
-
     draw_sprite_ext(spr_ability, 0, hud_offset_x, hud_offset_y, scale_factor, scale_factor, 0, c_white, 1);
 }
 
-
-// script_surge
+// Draw default passive sprite
 var player_surge = instance_find(main_2, 0); 
 var spr_passive = default_passive_sprite; 
 if (player_surge != noone) {
@@ -83,8 +80,31 @@ if (player_surge != noone) {
     var hud_offset_y_surge = room_height + 130; 
 	
 	var scale_factor_surge = 2.5;
-	
-
 
     draw_sprite_ext(spr_passive, 0, hud_offset_x_surge, hud_offset_y_surge, scale_factor_surge, scale_factor_surge, 0, c_white, 1);
 }
+
+// Create health variable and set default value
+//health = 100;
+
+// Draw health sprite
+var hud_offset_x_health = room_width + 170; 
+var hud_offset_y_health = 34;
+var scale_factor_health = 3.5;
+var health_sprite = spr_health;
+
+if (player != noone) {
+
+    if (place_meeting(x, y, obj_enemy) || place_meeting(x, y, obj_inside) || place_meeting(x, y, obj_boss) || place_meeting(x, y, obj_light)) {
+        health -= 1; 
+    }
+
+
+    if (health <= 30) {
+        health_sprite = spr_health_low;
+    } else if (health <= 50) {
+        health_sprite = spr_health_half; 
+    }
+}
+
+draw_sprite_ext(health_sprite, 0, hud_offset_x_health, hud_offset_y_health, scale_factor_health, scale_factor_health, 0, c_white, 1);
