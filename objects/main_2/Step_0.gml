@@ -102,6 +102,22 @@ if (!instance_exists(obj_textbox) && !instance_exists(obj_boss_talk)) {
             }
         }
     }
+	
+// Check if main_2 is not moving
+if (place_meeting(x, y, main_2)) {
+    // Check if main_2's position has changed since the last step
+    var main_2_is_moving = (x != xprevious || y != yprevious);
+    if (!main_2_is_moving) {
+        // If main_2 is not moving, pause its animation
+        main_2.image_speed = 0;
+    } else {
+        // If main_2 is moving, resume its animation
+        main_2.image_speed = 1;
+    }
+
+}
+
+
 
     // Check if space bar is pressed and cooldown is over
     if (keyboard_check_pressed(vk_space) && spaceCooldown <= 0) { 

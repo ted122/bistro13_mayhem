@@ -108,3 +108,32 @@ if (player != noone) {
 }
 
 draw_sprite_ext(health_sprite, 0, hud_offset_x_health, hud_offset_y_health, scale_factor_health, scale_factor_health, 0, c_white, 1);
+
+
+
+
+var meal = 15;
+var meal_sprite = spr_15;
+
+var hud_offset_x_spr_15 = 10;
+var hud_offset_y_spr_15 = 10;
+var scale_factor_spr_15 = 6.5;
+
+if (player != noone) {
+
+    if (place_meeting(x, y, obj_heal_wrp) || place_meeting(x, y, obj_warp) ) {
+        meal -= 1;
+    }
+
+    meal_sprite = choose(
+        meal == 15, spr_15,
+        meal == 14, spr_14,
+        meal == 13, spr_13,
+        meal == 12, spr_12,
+        meal == 11, spr_11,
+        meal <= 10, spr_10
+        // Add more conditions as needed
+    );
+}
+
+draw_sprite_ext(meal_sprite, 0, hud_offset_x_spr_15, hud_offset_y_spr_15, scale_factor_spr_15, scale_factor_spr_15, 0, c_white, 1);
